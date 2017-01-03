@@ -1,0 +1,82 @@
+{
+    "name"           : "re-pack",
+    "version"        : "0.0.1",
+    "description"    : "Minimalistic configuration for a complete and configurable react, webpack and firebase environment for development and production builds.",
+    "private"        : true,
+    "main"           : "index.js",
+    "scripts"        : {
+        "build"     : "cross-env NODE_ENV=production webpack --display-chunks --progress",
+        "clean"     : "del-cli public",
+        "lint"      : "eslint -c .eslintrc.yml *.js src server",
+        "prebuild"  : "run-s clean lint test",
+        "server"    : "cross-env NODE_ENV=development nodemon -w 'server/**/*.*' server/main.js",
+        "server:dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
+        "start"     : "npm run server:dev",
+        "test"      : "cross-env NODE_ENV=test karma start --single-run",
+        "test:watch": "cross-env NODE_ENV=test karma start"
+    },
+    "repository"     : {
+        "type": "git",
+        "url" : "git+https://github.com/john-d-pelingo/re-pack.git"
+    },
+    "keywords"       : [
+        "react",
+        "webpack"
+    ],
+    "author"         : "John Darryl Pelingo <johndarrylpelingo@gmail.com> (https://github.com/john-d-pelingo)",
+    "license"        : "MIT",
+    "bugs"           : {
+        "url": "https://github.com/john-d-pelingo/re-pack/issues"
+    },
+    "homepage"       : "https://github.com/john-d-pelingo/re-pack#readme",
+    "dependencies"   : {
+        "babel-polyfill": "6.20.0",
+        "react"         : "15.4.1",
+        "react-dom"     : "15.4.1",
+        "react-router"  : "3.0.0"
+    },
+    "devDependencies": {
+        "autoprefixer"               : "^6.6.0",
+        "babel-core"                 : "^6.21.0",
+        "babel-eslint"               : "^7.1.1",
+        "babel-loader"               : "^6.2.10",
+        "babel-preset-es2015"        : "^6.18.0",
+        "babel-preset-react"         : "^6.16.0",
+        "babel-preset-react-optimize": "^1.0.1",
+        "babel-preset-stage-0"       : "^6.16.0",
+        "cross-env"                  : "^3.1.3",
+        "css-loader"                 : "^0.26.1",
+        "del-cli"                    : "^0.2.1",
+        "eslint"                     : "^3.12.2",
+        "eslint-plugin-react"        : "^6.8.0",
+        "expect"                     : "^1.20.2",
+        "express"                    : "^4.14.0",
+        "extract-text-webpack-plugin": "^1.0.1",
+        "firebase"                   : "^3.6.4",
+        "firebase-tools"             : "^3.2.1",
+        "html-webpack-plugin"        : "^2.24.1",
+        "jasmine-core"               : "^2.5.2",
+        "karma"                      : "^1.3.0",
+        "karma-chrome-launcher"      : "^2.0.0",
+        "karma-jasmine"              : "^1.1.0",
+        "karma-sourcemap-loader"     : "^0.3.7",
+        "karma-spec-reporter"        : "0.0.26",
+        "karma-webpack"              : "^1.8.1",
+        "minx"                       : "^0.4.14",
+        "morgan"                     : "^1.7.0",
+        "node-env-file"              : "^0.1.8",
+        "node-sass"                  : "^4.1.1",
+        "nodemon"                    : "^1.11.0",
+        "npm-run-all"                : "^3.1.2",
+        "postcss-loader"             : "^1.2.1",
+        "react-addons-test-utils"    : "^15.4.1",
+        "react-hot-loader"           : "^3.0.0-beta.6",
+        "sass-loader"                : "^4.1.1",
+        "sinon"                      : "^1.17.6",
+        "style-loader"               : "^0.13.1",
+        "webpack"                    : "^1.14.0",
+        "webpack-dev-server"         : "^1.16.2",
+        "webpack-md5-hash"           : "0.0.5",
+        "winston"                    : "^2.3.0"
+    }
+}

@@ -1,4 +1,4 @@
 # re-pack
 
-My boilerplate for a complete and configurable react and webpack environment
-for development and production builds.
+Minimalistic configuration for a complete and configurable react, webpack and firebase environment for development and 
+production builds.
