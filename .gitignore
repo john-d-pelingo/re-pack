@@ -1,25 +1,20 @@
 _dump
 public
 
-
 # Trusted #
-###########
 .env
 
 # Editors #
-###########
 .idea
 .project
 *.iml
 
 # Logs #
-########
 logs
 *.log
 npm-debug.log*
 
 # Runtime data #
-################
 pids
 *.pid
 *.seed
@@ -29,7 +24,6 @@ node_modules
 jspm_packages
 
 # OS generated files #
-######################
 .DS_Store
 .DS_Store?
 ._*
