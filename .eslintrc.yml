@@ -51,7 +51,7 @@ rules:
   # strings
   quotes:
   - 2
-  - double
+  - single
   - avoid-escape
 
   # code arrangement matters

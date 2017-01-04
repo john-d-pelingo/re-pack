@@ -1,5 +1,5 @@
 // Recursively discover all spec files
-const context = require.context("./src", true, /\.spec\.js$/);
+const context = require.context('./src', true, /\.spec\.js$/);
 
 // Load discovered spec files
 context.keys().forEach(context);

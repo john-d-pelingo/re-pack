@@ -1,20 +1,20 @@
-const autoprefixer = require("autoprefixer");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const path = require("path");
-const webpack = require("webpack");
-const WebpackMd5Hash = require("webpack-md5-hash");
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const WebpackMd5Hash = require('webpack-md5-hash');
 
 // ----------------
 // ENVIRONMENT VARS
 // ----------------
 const NODE_ENV = process.env.NODE_ENV;
 
-const ENV_DEVELOPMENT = NODE_ENV === "development";
-const ENV_PRODUCTION = NODE_ENV === "production";
-const ENV_TEST = NODE_ENV === "test";
+const ENV_DEVELOPMENT = NODE_ENV === 'development';
+const ENV_PRODUCTION = NODE_ENV === 'production';
+const ENV_TEST = NODE_ENV === 'test';
 
-const HOST = "0.0.0.0";
+const HOST = '0.0.0.0';
 const PORT = 3000;
 
 // -------
@@ -28,14 +28,14 @@ const loaders = {
         // Tell which folders we don't want to have parsed.
         exclude: /node_modules/,
         // The module.
-        loader: "babel"
+        loader: 'babel'
         // loader : ['react-hot', 'babel']
     },
     // Convert scss files into css files
     scss: {
         test: /\.scss$/,
-        loader: "style!css!postcss!sass"
-        // loaders: ["style-loader", "css-loader", "sass-loader"]
+        loader: 'style!css!postcss!sass'
+        // loaders: ['style-loader', 'css-loader', 'sass-loader']
     }
 };
 
@@ -46,31 +46,31 @@ const config = {};
 module.exports = config;
 
 config.resolve = {
-    extensions: ["", ".js"],
+    extensions: ['', '.js'],
     // Always look for modules in the node_modules folder by default.
-    modulesDirectories: ["node_modules"],
+    modulesDirectories: ['node_modules'],
     // Resolve the current path into an absolute path
-    // meaning "What is my destination if I take this path."
-    root: path.resolve(".")
+    // meaning 'What is my destination if I take this path.'
+    root: path.resolve('.')
 };
 
 config.plugins = [
     // Create a process variable that has the property env
     // and its NODE_ENV is equal to NODE_ENV (development, production or test).
     new webpack.DefinePlugin({
-        "process.env.NODE_ENV": JSON.stringify(NODE_ENV)
+        'process.env.NODE_ENV': JSON.stringify(NODE_ENV)
     })
 ];
 
 config.postcss = [
     // Use last 3 version of browsers for the CSS.
     autoprefixer({
-        browsers: ["last 3 versions"]
+        browsers: ['last 3 versions']
     })
 ];
 
 config.sassLoader = {
-    outputStyle: "compressed",
+    outputStyle: 'compressed',
     precision: 10,
     sourceComments: false
 };
@@ -82,30 +82,30 @@ if (ENV_DEVELOPMENT || ENV_PRODUCTION) {
     // Where to start processing our code.
     // Inputs
     config.entry = {
-        main: ["./src/main.js"]
+        main: ['./src/main.js']
     };
 
     // Specify where to dump the bundled file.
     // Output
     config.output = {
         // [name] in this case is main.
-        filename: "[name].js",
+        filename: '[name].js',
         // Resolve the ./target path into an absolute path.
-        path: path.resolve("./public"),
+        path: path.resolve('./public'),
         // Public path for the user.
-        publicPath: "/"
+        publicPath: '/'
     };
 
     // Generate HTML for the application
     // with all the css and js injected to it.
     config.plugins.push(
         new HtmlWebpackPlugin({
-            chunkSortMode: "dependency",
-            filename: "index.html",
+            chunkSortMode: 'dependency',
+            filename: 'index.html',
             hash: false,
-            inject: "body",
-            template: "./src/template/index.html",
-            favicon: "./src/template/favicon.ico"
+            inject: 'body',
+            template: './src/template/index.html',
+            favicon: './src/template/favicon.ico'
         })
     );
 }
@@ -116,16 +116,16 @@ if (ENV_DEVELOPMENT || ENV_PRODUCTION) {
 if (ENV_DEVELOPMENT) {
     // Create source map which are very important debugging tools.
     // cheap-module-eval-source-map not working
-    config.devtool = "cheap-module-source-map";
-    // config.devtool = "eval";
+    config.devtool = 'cheap-module-source-map';
+    // config.devtool = 'eval';
 
     // Use react-hot-loader for the pages served.
     // The react-hot-loader here is the beta version.
     config.entry.main.unshift(
         `webpack-dev-server/client?http://${ HOST }:${ PORT }`,
-        "webpack/hot/only-dev-server",
-        "react-hot-loader/patch",
-        "babel-polyfill"
+        'webpack/hot/only-dev-server',
+        'react-hot-loader/patch',
+        'babel-polyfill'
     );
 
     // Add the js and css loaders into the modules.
@@ -143,7 +143,7 @@ if (ENV_DEVELOPMENT) {
 
     // Configure the dev server running react hot loader.
     config.devServer = {
-        contentBase: "./src",
+        contentBase: './src',
         historyApiFallback: true,
         host: HOST,
         hot: true,
@@ -168,16 +168,16 @@ if (ENV_DEVELOPMENT) {
 // ----------
 if (ENV_PRODUCTION) {
     // Create source map which are very important debugging tools.
-    config.devtool = "source-map";
+    config.devtool = 'source-map';
 
     // Split app and vendor code
     // This will remove all modules in the vendor chunk from the app chunk.
     // The bundle.js will now contain just your app code, without any of its dependencies.
     // These are in vendor.bundle.js.
-    config.entry.vendor = "./src/vendor.js";
+    config.entry.vendor = './src/vendor.js';
 
     // The output file name of the vendor.bundle.js.
-    config.output.filename = "[name].[chunkhash].js";
+    config.output.filename = '[name].[chunkhash].js';
 
     // Add the js and css loaders into the modules.
     config.module = {
@@ -189,7 +189,7 @@ if (ENV_PRODUCTION) {
             // is loaded in parallel to the javascript bundle.
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract("css?-autoprefixer!postcss!sass")
+                loader: ExtractTextPlugin.extract('css?-autoprefixer!postcss!sass')
             }
         ]
     };
@@ -197,11 +197,11 @@ if (ENV_PRODUCTION) {
     config.plugins.push(
         // Replace a standard webpack chunkhash with md5.
         new WebpackMd5Hash(),
-        // Move every require("style.css") in entry chunks into a separate css output file.
-        new ExtractTextPlugin("styles.[contenthash].css"),
+        // Move every require('style.css') in entry chunks into a separate css output file.
+        new ExtractTextPlugin('styles.[contenthash].css'),
         // For the vendor code
         new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
+            name: 'vendor',
             minChunks: Infinity
         }),
         // Search for equal or similar files and deduplicate them in the output.
@@ -224,7 +224,7 @@ if (ENV_PRODUCTION) {
 // ----
 if (ENV_TEST) {
     // Create source map which are very important debugging tools.
-    config.devtool = "inline-source-map";
+    config.devtool = 'inline-source-map';
 
     // Add the js and css loaders into the modules.
     config.module = {
