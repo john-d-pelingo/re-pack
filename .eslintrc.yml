@@ -76,15 +76,18 @@ rules:
     exports: never
     functions: never
 
+  no-shadow: 1
+  global-require: 1
+
+
+
   # react
   react/display-name: 0
-#  react/forbid-prop-types: [2, {forbid: ["any"]}]
   react/forbid-prop-types:
   - 2
   - forbid:
     - any
   react/jsx-boolean-value: 0
-#  react/jsx-closing-bracket-location: [2, {selfClosing: "tag-aligned", nonEmpty: "after-props"}]
   react/jsx-closing-bracket-location:
   - 2
   - selfClosing: tag-aligned
@@ -138,7 +141,6 @@ rules:
   react/no-unknown-property: 2
   react/prefer-es6-class: 2
   react/prefer-stateless-function: 1
-#  react/prefer-stateless-function: 2
   react/prop-types: 2
   react/react-in-jsx-scope: 2
   react/require-optimization: 0
@@ -147,172 +149,5 @@ rules:
   react/sort-comp: 1
   react/sort-prop-types: 1
 
+
 # .eslintrc equivalent
-#{
-#	"root": true,
-#	"parser": "babel-eslint",
-#	"plugins": [
-#		"react"
-#	],
-#	"extends": [
-#		"eslint:recommended",
-#		"plugin:react/recommended",
-#		"airbnb"
-#	],
-#	"env": {
-#		"browser": true,
-#		"es6": true,
-#		"jasmine": true,
-#		"node": true
-#	},
-#	"ecmaFeatures": {
-#		"jsx": true,
-#		"modules": true
-#	},
-#	"globals": {
-#		"firebase": true,
-#		"sinon": true
-#	},
-#	"rules": {
-#		"indent": [
-#			2,
-#			4
-#		],
-#		"space-in-parens": [
-#			0,
-#			"never"
-#		],
-#		"template-curly-spacing": [
-#			2,
-#			"always"
-#		],
-#		"array-bracket-spacing": [
-#			0,
-#			"always"
-#		],
-#		"object-curly-spacing": [
-#			2,
-#			"always"
-#		],
-#		"computed-property-spacing": [
-#			2,
-#			"always"
-#		],
-#		"no-multiple-empty-lines": [
-#			2,
-#			{
-#				"max": 1,
-#				"maxEOF": 0,
-#				"maxBOF": 0
-#			}
-#		],
-#		"quotes": [
-#			2,
-#			"double",
-#			"avoid-escape"
-#		],
-#		"no-use-before-define": [
-#			2,
-#			{
-#				"functions": false
-#			}
-#		],
-#		"prefer-const": 1,
-#		"complexity": [
-#			1,
-#			5
-#		],
-#		"comma-dangle": [
-#			"error",
-#			{
-#				"arrays": "never",
-#				"objects": "never",
-#				"imports": "never",
-#				"exports": "never",
-#				"functions": "never"
-#			}
-#		],
-#		"react/display-name": 0,
-#		"react/forbid-prop-types": [
-#			2,
-#			{
-#				"forbid": [
-#					"any"
-#				]
-#			}
-#		],
-#		"react/jsx-boolean-value": 0,
-#		"react/jsx-closing-bracket-location": [
-#			2,
-#			{
-#				"selfClosing": "tag-aligned",
-#				"nonEmpty": "after-props"
-#			}
-#		],
-#		"react/jsx-curly-spacing": [
-#			2,
-#			"always"
-#		],
-#		"react/jsx-equals-spacing": [
-#			2,
-#			"never"
-#		],
-#		"react/jsx-filename-extension": 0,
-#		"react/jsx-first-prop-new-line": [
-#			2,
-#			"multiline"
-#		],
-#		"react/jsx-handler-names": 0,
-#		"react/jsx-indent": [
-#			2,
-#			4
-#		],
-#		"react/jsx-indent-props": [
-#			1,
-#			2
-#		],
-#		"react/jsx-key": 2,
-#		"react/jsx-max-props-per-line": 0,
-#		"react/jsx-no-bind": [
-#			0,
-#			{
-#				"ignoreRefs": true
-#			}
-#		],
-#		"react/jsx-no-comment-textnodes": 2,
-#		"react/jsx-no-duplicate-props": 2,
-#		"react/jsx-no-literals": 0,
-#		"react/jsx-no-target-blank": 2,
-#		"react/jsx-no-undef": 2,
-#		"react/jsx-pascal-case": 2,
-#		"react/jsx-sort-props": 0,
-#		"react/jsx-space-before-closing": [
-#			2,
-#			"always"
-#		],
-#		"react/jsx-uses-react": 1,
-#		"react/jsx-uses-vars": 1,
-#		"react/jsx-wrap-multilines": 2,
-#		"react/no-danger": 1,
-#		"react/no-deprecated": 1,
-#		"react/no-did-mount-set-state": 2,
-#		"react/no-did-update-set-state": 2,
-#		"react/no-direct-mutation-state": 2,
-#		"react/no-find-dom-node": 2,
-#		"react/no-is-mounted": 2,
-#		"react/no-multi-comp": 1,
-#		"react/no-render-return-value": 2,
-#		"react/no-set-state": 0,
-#		"react/no-string-refs": 2,
-#		"react/no-unknown-property": 2,
-#		"react/prefer-es6-class": 2,
-#		"react/prefer-stateless-function": 1,
-#		"react/prop-types": 2,
-#		"react/react-in-jsx-scope": 2,
-#		"react/require-optimization": 0,
-#		"react/require-render-return": 2,
-#		"react/self-closing-comp": 0,
-#		"react/sort-comp": 1,
-#		"react/sort-prop-types": 1
-#	}
-#}

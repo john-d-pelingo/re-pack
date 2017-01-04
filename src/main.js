@@ -5,7 +5,6 @@ import { AppContainer } from 'react-hot-loader';
 import App from './components/App';
 import './views/styles/style.scss';
 
-// eslint-disable-next-line no-shadow
 function render(App) {
     ReactDOM.render(
         <AppContainer>
@@ -18,7 +17,6 @@ function render(App) {
 // For react-hot-loader
 if (module.hot) {
     module.hot.accept('./components/App', () => {
-        // eslint-disable-next-line global-require
         const NextApp = require('./components/App').default;
         render(NextApp);
     });
