@@ -8,7 +8,7 @@ import './views/styles/style.scss';
 function render(App) {
     ReactDOM.render(
         <AppContainer>
-            <App name="John" />
+            <App name="Johnny Boy" />
         </AppContainer>,
         document.getElementById('root')
     );
