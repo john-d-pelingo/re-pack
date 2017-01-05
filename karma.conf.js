@@ -1,6 +1,6 @@
 const webpackConfig = require('./webpack.config');
 
-module.exports = (config) => {
+module.exports = config => {
     let browsers = ['Chrome', 'ChromeCanary'];
     if (process.env.TRAVIS) {
         browsers = ['Chrome_travis_ci'];

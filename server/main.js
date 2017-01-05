@@ -33,7 +33,7 @@ app.use(router);
 // ------------
 // START SERVER
 // ------------
-app.listen(PORT, HOST, (error) => {
+app.listen(PORT, HOST, error => {
     if (error) {
         logger.error(error);
     } else {
