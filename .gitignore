@@ -19,7 +19,7 @@ pids
 *.pid
 *.seed
 
-# Dependency directories
+# Dependency directories #
 node_modules
 jspm_packages
 
