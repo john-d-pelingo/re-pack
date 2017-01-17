@@ -1,3 +1,5 @@
+/* eslint-disable camelcase */
+
 const webpackConfig = require('./webpack.config');
 
 module.exports = config => {

@@ -42,7 +42,7 @@ rules:
   - allowSingleLine: true
   callback-return: 0
   camelcase:
-  - 1
+  - 2
   - properties: always
   comma-dangle:
   - error
@@ -59,7 +59,7 @@ rules:
   - 1
   - 5
   computed-property-spacing:
-  - 2
+  - 0
   - always
   consistent-return: 0
   consistent-this: 0
@@ -86,7 +86,7 @@ rules:
   - before: false
     after: true
   guard-for-in: 2
-  global-require: 1
+  global-require: 2
   handle-callback-err: 0
   id-blacklist: 0
   id-length: 0
@@ -125,7 +125,7 @@ rules:
   no-class-assign: 2
   no-cond-assign: 2
   no-confusing-arrow: 0
-  no-console: 2
+  no-console: 1
   no-const-assign: 2
   no-constant-condition: 2
   no-continue: 0
@@ -211,7 +211,7 @@ rules:
   no-self-assign: 2
   no-self-compare: 0
   no-sequences: 2
-  no-shadow: 1
+  no-shadow: 2
   no-shadow-restricted-names: 2
   no-spaced-func: 2
   no-sparse-arrays: 2
@@ -258,7 +258,7 @@ rules:
   operator-linebreak: 0
   padded-blocks: 0
   prefer-arrow-callback: 0
-  prefer-const: 1
+  prefer-const: 2
   prefer-reflect: 0
   prefer-rest-params: 0
   prefer-spread: 0
@@ -343,7 +343,7 @@ rules:
   - 4
   react/jsx-indent-props:
   - 1
-  - 2
+  - 4
   react/jsx-key: 2
   react/jsx-max-props-per-line: 0
   react/jsx-no-bind:
@@ -375,7 +375,7 @@ rules:
   react/no-string-refs: 2
   react/no-unknown-property: 2
   react/prefer-es6-class: 2
-  react/prefer-stateless-function: 1
+  react/prefer-stateless-function: 2
   react/prop-types: 2
   react/react-in-jsx-scope: 2
   react/require-optimization: 0
