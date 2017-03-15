@@ -2,15 +2,20 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { AppContainer } from 'react-hot-loader';
 
-import App from './components/App';
+import configureStore, { history } from './core/store';
+
+import Root from './views/root';
 import './views/styles/style.scss';
 
-function render(App) {
+const store = configureStore();
+
+function render(Root) {
     ReactDOM.render(
         <AppContainer>
-            <App name="Johnny Boy" />
+            <Root history={ history } store={ store } />
         </AppContainer>,
         document.getElementById('root')
     );
@@ -18,10 +23,10 @@ function render(App) {
 
 // For react-hot-loader
 if (module.hot) {
-    module.hot.accept('./components/App', () => {
-        const NextApp = require('./components/App').default;
+    module.hot.accept('./views/root', () => {
+        const NextApp = require('./views/root').default;
         render(NextApp);
     });
 }
 
-render(App);
+render(Root);

@@ -104,8 +104,8 @@ if (ENV_DEVELOPMENT || ENV_PRODUCTION) {
             filename: 'index.html',
             hash: false,
             inject: 'body',
-            template: './static/index.html',
-            favicon: './static/favicon.ico'
+            template: './src/template/index.html',
+            favicon: './src/template/favicon.ico'
         })
     );
 }
@@ -170,9 +170,13 @@ if (ENV_PRODUCTION) {
     // Create source map which are very important debugging tools.
     config.devtool = 'source-map';
 
-    config.entry.main.unshift('babel-polyfill');
+    // Split app and vendor code
+    // This will remove all modules in the vendor chunk from the app chunk.
+    // The bundle.js will now contain just your app code, without any of its dependencies.
+    // These are in vendor.bundle.js.
+    config.entry.vendor = './src/vendor.js';
 
-    // The output file name of the main.bundle.js.
+    // The output file name of the vendor.bundle.js.
     config.output.filename = '[name].[chunkhash].js';
 
     // Add the js and css loaders into the modules.
@@ -195,6 +199,11 @@ if (ENV_PRODUCTION) {
         new WebpackMd5Hash(),
         // Move every require('style.css') in entry chunks into a separate css output file.
         new ExtractTextPlugin('styles.[contenthash].css'),
+        // For the vendor code
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: Infinity
+        }),
         // Search for equal or similar files and deduplicate them in the output.
         new webpack.optimize.DedupePlugin(),
         // Minimize all JavaScript output of chunks. Loaders are switched into minimizing mode.
