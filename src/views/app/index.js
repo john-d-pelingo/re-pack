@@ -6,7 +6,7 @@ import { paths } from '../routes';
 import { Navigation } from '../components';
 
 const propTypes = {
-    children: React.PropTypes.array.isRequired
+    children: React.PropTypes.object.isRequired
 };
 
 class App extends React.Component {

@@ -1,8 +1,7 @@
 import Home from './Home';
-
-const dummy = 'dummy';
+import Error404 from './Error404';
 
 export {
-    Home,
-    dummy
+    Error404,
+    Home
 };

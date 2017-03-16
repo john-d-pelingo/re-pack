@@ -15,6 +15,9 @@ const Navigation = ({ paths }) => (
             <li>
                 <Link to={ paths.CUSTOM }>Custom</Link>
             </li>
+            <li>
+                <Link to="/unknown-path">404 Example</Link>
+            </li>
         </ul>
     </div>
 );

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import App from './app';
-import { Home } from './pages';
+import { Home, Error404 } from './pages';
 
 const propTypes = {
     getState: React.PropTypes.func.isRequired
@@ -16,8 +16,11 @@ export const paths = {
 
 const Routes = ({ getState }) => (
     <App>
-        <Route exact path={ paths.ROOT } component={ Home } />
-        <Route path={ paths.CUSTOM } render={ () => <div>Rendered by using the render property. Location: { getState().router.location.pathname }</div> } />
+        <Switch>
+            <Route exact path={ paths.ROOT } component={ Home } />
+            <Route path={ paths.CUSTOM } render={ () => <div>Rendered by using the render property. Location: { getState().router.location.pathname }</div> } />
+            <Route component={ Error404 } />
+        </Switch>
     </App>
 );
 
