@@ -3,12 +3,12 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 
-import createHistory from 'history/createBrowserHistory';
+import createBrowserHistory from 'history/createBrowserHistory';
 import { routerMiddleware } from 'react-router-redux';
 
 import reducers from './reducers';
 
-export const history = createHistory();
+export const history = createBrowserHistory();
 // Export anonymous function.
 // The name of this function when imported can be whatever we want.
 export default (initialState = {}) => {

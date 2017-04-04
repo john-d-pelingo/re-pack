@@ -2,8 +2,8 @@
   "name": "re-pack",
   "version": "0.0.2",
   "description": "Minimalistic configuration for a complete and configurable react, webpack and firebase environment for development and production builds.",
-  "private": true,
-  "main": "index.js",
+  "private": false,
+  "homepage": "https://github.com/john-d-pelingo/re-pack#readme",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --display-chunks --progress",
     "clean": "del-cli public",
@@ -13,7 +13,8 @@
     "server:dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
     "start": "npm run server:dev",
     "test": "cross-env NODE_ENV=test karma start --single-run",
-    "test:watch": "cross-env NODE_ENV=test karma start"
+    "test:watch": "cross-env NODE_ENV=test karma start",
+    "deploy": "npm run build && firebase deploy"
   },
   "repository": {
     "type": "git",
@@ -28,7 +29,6 @@
   "bugs": {
     "url": "https://github.com/john-d-pelingo/re-pack/issues"
   },
-  "homepage": "https://github.com/john-d-pelingo/re-pack#readme",
   "dependencies": {
     "autoprefixer": "6.6.1",
     "babel-polyfill": "6.20.0",
@@ -41,6 +41,7 @@
     "morgan": "1.7.0",
     "react": "15.4.2",
     "react-dom": "15.4.2",
+    "react-ga": "2.1.2",
     "react-hot-loader": "3.0.0-beta.6",
     "react-redux": "5.0.3",
     "react-router": "4.0.0",

@@ -2,7 +2,6 @@
 
 import React from 'react';
 
-import { paths } from '../routes';
 import { Navigation } from '../components';
 
 const propTypes = {
@@ -14,7 +13,7 @@ class App extends React.Component {
         const { children } = this.props;
         return (
             <div>
-                <Navigation paths={ paths } />
+                <Navigation />
                 <main>
                     { children }
                 </main>

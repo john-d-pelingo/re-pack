@@ -1,12 +1,9 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
-const propTypes = {
-    paths: React.PropTypes.object.isRequired
-};
+import { paths } from '../routes';
 
-const Navigation = ({ paths }) => (
+const Navigation = () => (
     <div>
         <ul>
             <li>
@@ -16,12 +13,10 @@ const Navigation = ({ paths }) => (
                 <Link to={ paths.CUSTOM }>Custom</Link>
             </li>
             <li>
-                <Link to="/unknown-path">404 Example</Link>
+                <Link to={ paths.FOUR_OH_FOUR }>404 Example</Link>
             </li>
         </ul>
     </div>
 );
-
-Navigation.propTypes = propTypes;
 
 export default Navigation;
