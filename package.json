@@ -1,34 +1,34 @@
 {
   "name": "re-pack",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Minimalistic configuration for a complete and configurable react, webpack and firebase environment for development and production builds.",
   "private": false,
   "homepage": "https://github.com/john-d-pelingo/re-pack#readme",
+  "author": "John Darryl Pelingo <johndarrylpelingo@gmail.com> (https://github.com/john-d-pelingo)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/john-d-pelingo/re-pack/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/john-d-pelingo/re-pack.git"
+  },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --display-chunks --progress",
     "clean": "del-cli public",
+    "deploy": "npm run build && firebase deploy",
     "lint": "eslint -c .eslintrc.yml *.js src server",
     "prebuild": "run-s clean lint test",
     "server": "cross-env NODE_ENV=development nodemon -w 'server/**/*.*' server/main.js",
     "server:dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
     "start": "npm run server:dev",
     "test": "cross-env NODE_ENV=test karma start --single-run",
-    "test:watch": "cross-env NODE_ENV=test karma start",
-    "deploy": "npm run build && firebase deploy"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/john-d-pelingo/re-pack.git"
+    "test:watch": "cross-env NODE_ENV=test karma start"
   },
   "keywords": [
     "react",
     "webpack"
   ],
-  "author": "John Darryl Pelingo <johndarrylpelingo@gmail.com> (https://github.com/john-d-pelingo)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/john-d-pelingo/re-pack/issues"
-  },
   "dependencies": {
     "autoprefixer": "6.6.1",
     "babel-polyfill": "6.20.0",
@@ -39,6 +39,7 @@
     "history": "4.6.0",
     "html-webpack-plugin": "2.26.0",
     "morgan": "1.7.0",
+    "prop-types": "15.5.7",
     "react": "15.4.2",
     "react-dom": "15.4.2",
     "react-ga": "2.1.2",

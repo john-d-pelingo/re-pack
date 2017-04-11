@@ -1,9 +1,10 @@
 /* eslint-disable react/prefer-stateless-function */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const propTypes = {
-    name: React.PropTypes.string
+    name: PropTypes.string
 };
 
 class Home extends React.Component {

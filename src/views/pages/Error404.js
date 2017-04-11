@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const propTypes = {
-    location: React.PropTypes.object.isRequired
+    location: PropTypes.object.isRequired
 };
 
 const Error404 = ({ location }) => (

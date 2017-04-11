@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 import ReactGA from 'react-ga';
 
@@ -6,7 +7,7 @@ import App from './app';
 import { Home, Error404 } from './pages';
 
 const propTypes = {
-    getState: React.PropTypes.func.isRequired
+    getState: PropTypes.func.isRequired
 };
 
 export const paths = {
@@ -17,6 +18,7 @@ export const paths = {
 };
 
 ReactGA.initialize('UA-70753213-3');
+
 const logPageView = () => {
     ReactGA.set({ page: window.location.pathname });
     ReactGA.pageview(window.location.pathname);

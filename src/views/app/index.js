@@ -1,11 +1,12 @@
 /* eslint-disable react/prefer-stateless-function */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Navigation } from '../components';
 
 const propTypes = {
-    children: React.PropTypes.object.isRequired
+    children: PropTypes.array.isRequired
 };
 
 class App extends React.Component {
