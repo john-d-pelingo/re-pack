@@ -11,14 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/john-d-pelingo/re-pack.git"
+    "url": "https://github.com/john-d-pelingo/re-pack.git"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --display-chunks --progress",
     "clean": "del-cli public",
-    "deploy": "npm run build && firebase deploy",
+    "deploy": "firebase deploy",
     "lint": "eslint -c .eslintrc.yml *.js src server",
     "prebuild": "run-s clean lint test",
+    "predeploy": "npm run build",
     "server": "cross-env NODE_ENV=development nodemon -w 'server/**/*.*' server/main.js",
     "server:dev": "cross-env NODE_ENV=development webpack-dev-server --progress",
     "start": "npm run server:dev",
