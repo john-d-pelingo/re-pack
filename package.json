@@ -34,7 +34,7 @@
     "autoprefixer": "6.6.1",
     "babel-polyfill": "6.20.0",
     "expect": "1.20.2",
-    "express": "4.14.0",
+    "express": "4.15.5",
     "extract-text-webpack-plugin": "1.0.1",
     "firebase": "3.6.4",
     "history": "4.6.0",
